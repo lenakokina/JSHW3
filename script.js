@@ -41,19 +41,25 @@ function getNumber(message) {
 let validOperator = getOperator('enter arithmetic action (options: "+", "-", "*", "/")');
 let firstNumber = +getNumber('enter the first number');
 let secondNumber = +getNumber('enter the second number');
-let calculation;
+let calculation = calcResult(firstNumber, secondNumber, validOperator);
+showResult(firstNumber, secondNumber, validOperator, calculation);
 
-  switch (validOperator) {
-  case '+': calculation = firstNumber + secondNumber;
-  break;
-  case '-': calculation = firstNumber - secondNumber;
-  break;
-  case '*': calculation = firstNumber * secondNumber;
-  break;
-  case '/': calculation = firstNumber / secondNumber;
-  break;
+function calcResult (a, b, op) {
+  switch (op) {
+  case '+': return a + b;
+  
+  case '-': return a - b;
+  
+  case '*': return a * b;
+  
+  case '/': return a / b;
+  
   }
-   alert( ` ${firstNumber}${ validOperator}${secondNumber}=${calculation} ` );
+}
+function showResult (a, b, op, calculation) {
+  alert( ` ${a}${ op}${b}=${calculation} ` );
+}
+  
 
 
 
